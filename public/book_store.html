@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Welcome to Firebase Hosting</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        background-color: rgba(63, 170, 212, 0.2);
+      }
+      .column {
+        float: left;
+        width: 33%;
+        padding: 0 35px;
+      }
+
+      /* Remove extra left and right margins, due to padding in columns */
+      .row {
+        margin: 0 -5px;
+      }
+
+      /* Clear floats after the columns */
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      /* Style the counter cards */
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+        padding: 16px;
+        text-align: center;
+        background-color: #dcd8d8;
+        position: relative;
+        overflow: hidden;
+        border-radius: 6px;
+      }
+
+      /* Responsive columns - one column layout (vertical) on small screens */
+      @media screen and (max-width: 600px) {
+        .column {
+          width: 100%;
+          display: block;
+          margin-bottom: 20px;
+        }
+      }
+
+      .card img {
+        width: 50%;
+        height: auto;
+        transition: transform 0.3s;
+      }
+      .card:hover img {
+        transform: scale(1.1);
+        position: relative;
+        z-index: 1;
+      }
+      
+      h4{
+        font-size: 30px;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: rgb(8, 8, 59);
+      }
+      h1 {
+      text-align: center;
+      font-size: 80px;
+      color: rgb(18, 18, 97);
+      margin-top: 30px;
+      animation: validation;
+      animation-duration: 1s;
+      animation-play-state: running;
+      animation-delay: 2s;
+      animation-direction: forwards;
+      transition-timing-function: ease-in-out;
+      padding-top: 10px;
+      padding-bottom: 5px;
+     }
+  
+     @keyframes validation {
+      0% {
+        color: brown;
+        transform: translateX(20%);
+      }
+      45% {
+        color: green;
+      }
+      100% {
+        color: black;
+      }
+    } 
+
+    a{
+       text-decoration: none;
+       color:white;
+       background-color: rgb(112, 112, 230);
+       padding: 10px;
+       padding-left: 35%;
+       padding-right: 35%;
+       border-radius: 3px;
+       font-size: 20px;
+    }
+    a:hover{
+      background-color: rgb(40, 194, 194);
+    }
+
+    .a1{
+      font-size: 25.2px;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: rgb(8, 8, 59);
+    }
+
+    .f1{
+      font-size: 27.2px;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: rgb(8, 8, 59);
+    }
+
+    .f3{
+      font-size: 28px;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: rgb(8, 8, 59);
+    }
+
+    .f2{
+      font-size: 28px;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: rgb(8, 8, 59);
+    }
+
+    h1::first-letter {
+      color: rgb(223, 13, 13);
+      text-shadow: 2px 2px 2px rgb(12, 4, 136);
+      font-family: lucida calligraphy;
+    }
+
+    header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    color:whitesmoke;
+    padding-left: 70px;
+    /* padding: 25px; */
+    background-color: rgba(43, 161, 207); 
+    font-size:25px ;
+    height:100px;
+}
+
+.logo {
+    align-self: flex-start;
+}
+
+nav {
+    align-self: flex-end;
+}
+
+    </style>
+
+  </head>
+  <body>
+  
+
+    <h1>Welcome To BookWorld</h1>
+
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img
+          src="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/dont%20belive1.webp?alt=media&token=86c23ab6-218a-4f04-a49b-9fbd839ec1f3"  alt="Avatar"
+            style="width: 300px; height: 200px; border-radius: 5%"
+          />
+          <div class="container">
+            <h4 class="a1"><b>Dont Believe Everything You Think</b></h4>
+            <a href="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/Dont_Believe_Everything_You_Think.pdf?alt=media&token=b2c537ab-0524-47c1-a1d5-c72a42298fbd" download="Dont_Believe_Everything_You_Think.pdf">Read</a>         
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img
+          src="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/you2.png?alt=media&token=0a1f8d0b-b1f0-44ba-b43a-08920c85172d"            alt="Avatar"
+            style="width: 300px; height: 200px;  border-radius: 5%"
+          />
+          <div class="container">
+            <h4><b>You^2</b></h4>
+            <a href="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/You%5E2.pdf?alt=media&token=f2b16d33-fde9-457f-931f-68517c9abf2c" download="You^2.pdf">Read</a>         
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img
+          src="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/Think%20and%20Grow.png?alt=media&token=ffa71e5d-fd3d-49d6-940b-aa7850a3fc25"            alt="Avatar"
+            style="width: 300px; height: 200px; border-radius: 5%"
+          />
+          <div class="container">
+            <h4><b>Think and Grow Rich</b></h4>
+            <a href="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/Think-and-Grow-Rich.pdf?alt=media&token=cb3444f3-197e-4219-8033-ae7a51c01fa4" download="Think-and-Grow-Rich.pdf">Read</a>         
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <br /><br /><br /><br /><br />
+  
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img
+          src="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/atomic1.jpg?alt=media&token=03e401f1-72b3-4b27-953b-a735a35bfe13"            alt="Avatar"
+            style="width: 300px; height: 200px; border-radius: 5%"
+          />
+          <div class="container">
+            <h4><b>Atomic Habits</b></h4>
+            <a href="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/Atomic%20Habits.pdf?alt=media&token=8da69737-cd01-458e-b19b-3865542f171a" download="Atomic Habits.pdf">Read</a>         
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img
+          src="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/indistractable.png?alt=media&token=bd5d3aaf-6921-4893-8920-ae58655cc65f"            alt="Avatar"
+            style="width: 300px; height: 200px; border-radius: 5%"
+          />
+          <div class="container">
+            <h4><b>Indistractable</b></h4>
+            <a href="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/indistractable.pdf?alt=media&token=96c9d91a-8ef9-4c28-b17f-43fadbd98af2" download="indistractable.pdf">Read</a>         
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img
+          src="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/malgudi.jpg?alt=media&token=7a12317a-8849-4e2b-b08a-74e106f9a3f4"            alt="Avatar"
+            style="width: 300px; height: 200px; border-radius: 5%"
+          />
+          <div class="container">
+            <h4><b>Malgudi Days</b></h4>
+            <a href="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/Malgudi%20Days%20-%20R.%20K.%20Narayan.pdf?alt=media&token=661edc4a-e744-46ee-82a5-7fd3c2119fd2" download="Malgudi Days - R. K. Narayan.pdf">Read</a>         
+           </div>
+        </div>
+      </div>
+
+    </div>
+    <br /><br /><br /><br /><br />
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img
+          src="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/one%20night.jpg?alt=media&token=85a35d72-27a0-4334-8251-1dca211e2cd0"            alt="Avatar"
+            style="width: 300px; height: 200px; border-radius: 5%"
+          />
+          <div class="container">
+            <h4 class="f1"><b>One night at the call centre</b></h4>
+            <a href="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/one-night-at-the-call-centre-365.pdf?alt=media&token=1a501760-bbc0-4606-8916-2c371996dfbe" download="one-night-at-the-call-centre-365.pdf">Read</a>         
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img
+          src="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/she%20broke%20up%20i%20didnt.jpg?alt=media&token=b4854ff1-88c5-46a7-819e-5b569f950214"            alt="Avatar"
+            style="width: 300px; height: 200px; border-radius: 5%"
+          />
+          <div class="container">
+            <h4 class="f2"><b>She broke up i didnt</b></h4>
+            <a href="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/she-broke-up-i-didnt.pdf?alt=media&token=5342d067-f0d8-46bc-a519-c0c91251b138" download="she-broke-up-i-didnt.pdf">Read</a>         
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img
+          src="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/3%20mistakes.jpg?alt=media&token=9700828e-72ef-47c8-a944-e195c1b97b2f"            alt="Avatar"
+            style="width: 300px; height: 200px; border-radius: 5%"
+          />
+          <div class="container">
+            <h4 class="f3"><b>Three mistakes of my life</b></h4>
+            <a href="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/three-mistakes-of-my-life-364.pdf?alt=media&token=a596ebbe-013a-47ec-9456-8aa74f5b5a3d" download="three-mistakes-of-my-life-364.pdf">Read</a>         
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script>
+      import { initializeApp } from "firebase/app";
+      import { getAnalytics } from "firebase/analytics";
+      
+      const firebaseConfig = {
+        apiKey: "AIzaSyA0sSoL6xOA9HbaUin2WjoFQBjxcepwtMU",
+        authDomain: "book-store-382ec.firebaseapp.com",
+        projectId: "book-store-382ec",
+        storageBucket: "book-store-382ec.appspot.com",
+        messagingSenderId: "432081701635",
+        appId: "1:432081701635:web:cdbd13ca7dca5c4975f736",
+        measurementId: "G-44Q0X86QZV"
+      };
+      
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      
+        </script>
+  </body>
+</html>

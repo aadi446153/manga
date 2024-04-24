@@ -1,0 +1,233 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validation</title>
+    <script type="module" src="login.js" defer></script>
+
+    <style>
+      *{
+  margin:0;
+  padding:0;
+ 
+}
+
+body{
+  font-family:Georgia, 'Times New Roman', Times, serif; /* Setting the font family */
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/login-page-b62fb.appspot.com/o/add.jpg?alt=media&token=6c5d7924-cb00-4c34-b0a7-d474c1990487");
+  background-repeat: no-repeat; 
+    background-position: center; /* Centering the background image */
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-size: cover; 
+    margin:0;
+  padding:0;
+}
+
+
+header,footer{
+  background-color: rgba(43, 161, 207);
+  color:white;
+  width:100%;
+}
+
+footer{
+  position:absolute;
+  bottom:0;
+  padding:25px;
+  font-size: 15px;
+  text-align: center;
+}
+header h1{
+  color:white;
+  font-size: 26px;
+}
+
+header{
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+  padding:15px;
+}
+
+nav ul li{
+display: inline-block;
+text-transform: capitalize;
+}
+
+nav ul li a{
+   text-transform: capitalize;
+   text-decoration: none;
+   padding:20px;
+   color:white;
+   font-size: 17px;
+}
+nav ul li a:hover{
+  color: rgb(15, 223, 205);
+}
+
+.id1{
+  color:rgb(5, 5, 107);
+  margin-top: 30px;
+  text-align: center;
+  font-size: 35px;
+}
+
+@keyframes validation{
+  0%{
+    color:brown;
+    transform:translateX(20%);
+  }
+  45%{
+    color:green;
+  }
+  100%{
+    color:black;
+    
+  }
+} 
+.id1::first-letter{
+  color:rgb(223, 13, 13);
+  text-shadow: 2px 2px 2px rgb(12, 4, 136);
+  font-family: lucida calligraphy;
+}
+
+.contact1 {
+    width: 350px;
+    margin: 6vh auto 0 auto;
+    padding: 30px;
+    background-color: rgba(108, 199, 233, 0.4); /* Add some transparency to make the background image visible */
+    border-radius: 13px;
+    font-size: 18px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow with transparency */
+    border: 3px solid rgba(43, 161, 207); /* Set border with desired color */
+}
+.contact label{
+  color: whitesmoke;
+  font-weight: bold;
+}
+
+.contact input {
+    display: flex;
+    flex-direction: column;
+    /* border-color: rgb(26, 24, 26); */
+    border-radius: 5px;
+    border-width: 3px;
+    font-size: 15px;
+    padding: 13px;
+    width: 90%;
+    border-color:  rgba(94, 176, 209, 0.2); 
+    background-color: rgba(43, 161, 207, 0.2); /* Add some transparency to make the background image visible */
+}
+
+span{
+  color:rgb(207, 23, 38);
+  font-size: 12px;
+  align-items: center;
+  width:100%;
+}
+button {
+    width: 97%;
+    padding: 10px;
+    background-color: rgb(22, 163, 219); 
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size:20px;
+    font-family:Georgia, 'Times New Roman', Times, serif; /* Setting the font family */
+    font-weight: bold;
+
+}
+p{
+  padding-left: 20px;
+  font-family:Georgia, 'Times New Roman', Times, serif; /* Setting the font family */
+}
+button:hover {
+    background-color: #0056b3;
+}
+#us4{
+   cursor: pointer;
+   margin-top: 7px;
+   color:white;
+   width:100%;
+   padding: 9px;
+   font-size:15px;
+   border-radius: 4px;
+   background-color: blue;
+   border: none;
+}
+.check{
+ display:list-item;
+ background-color: brown;
+  margin-top: 2px;
+  margin-bottom: 8px;
+  padding:10px;
+  width:10%;
+  display: flexbox;
+ 
+}
+
+.logo {
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Align items vertically */
+}
+
+.logo img {
+    margin-right: 10px; /* Add some spacing between the image and the text */
+}
+    </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+       <img src="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/book1.jpg?alt=media&token=c35a3209-5e26-483d-9c04-2fee98742c4b"
+       style="width: 50px; height: 50px; border-radius: 50%"
+       />
+       <h1>Book World</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+        </ul>
+    </nav>
+</header>
+ 
+ <h1 class="id1">Login</h1>
+
+ <div class="contact1">
+    
+     <form id="login-form">
+       <div class="contact">
+         <label for="email">Email</label>
+         <input type="email" placeholder=" " id="email" name="email" required><br>
+       </div>
+       <div class="contact">
+         <label for="password">Password</label>
+         <input type="password" placeholder=" " id="password" name="password" required><br>
+       </div>
+         <button id="submit" type="submit">Login</button><br><br>
+     </form>
+     <!-- <div class="form">
+       <p>Have an account?
+         <span>
+           <a href="registration.html">Login Here</a><br>
+         </span>
+       </p>
+    </div> -->
+ </div>
+
+<footer>
+    <h2>&copy:All Right Reserved</h2>
+</footer>
+
+
+
+</body>
