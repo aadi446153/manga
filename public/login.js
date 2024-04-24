@@ -3,14 +3,14 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyA0sSoL6xOA9HbaUin2WjoFQBjxcepwtMU",
-    authDomain: "book-store-382ec.firebaseapp.com",
-    projectId: "book-store-382ec",
-    storageBucket: "book-store-382ec.appspot.com",
-    messagingSenderId: "432081701635",
-    appId: "1:432081701635:web:cdbd13ca7dca5c4975f736",
-    measurementId: "G-44Q0X86QZV"
-  };
+  apiKey: "AIzaSyAsFybiGj7kU6IyUFagLSyJatw4eK6AgXc",
+  authDomain: "mangastore-64f59.firebaseapp.com",
+  projectId: "mangastore-64f59",
+  storageBucket: "mangastore-64f59.appspot.com",
+  messagingSenderId: "797706286925",
+  appId: "1:797706286925:web:b42abf610dd2f7f021a904",
+  measurementId: "G-Z9EK8DP5PV"
+};
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
