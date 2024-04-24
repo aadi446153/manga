@@ -1,89 +1,231 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validation</title>
+    <script type="module" src="index.js" defer></script>
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/10.11.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/10.11.0/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/10.11.0/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/10.11.0/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/10.11.0/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/10.11.0/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/10.11.0/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/10.11.0/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/10.11.0/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/10.11.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+    <style>
+      *{
+  margin:0;
+  padding:0;
+ 
+}
+body{
+  font-family:Georgia, 'Times New Roman', Times, serif; /* Setting the font family */
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/login-page-b62fb.appspot.com/o/add.jpg?alt=media&token=6c5d7924-cb00-4c34-b0a7-d474c1990487");
+  background-repeat: no-repeat; 
+    background-position: center; /* Centering the background image */
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-size: cover; 
+    margin:0;
+  padding:0;
+}
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
+header,footer{
+  background-color: rgba(43, 161, 207);
+  color:white;
+  width:100%;
+}
+
+footer{
+  position:absolute;
+  bottom:0;
+  padding:25px;
+  font-size: 15px;
+  text-align: center;
+}
+header h1{
+  color:white;
+  font-size: 26px;
+}
+
+header{
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+  padding:15px;
+}
+
+nav ul li{
+display: inline-block;
+text-transform: capitalize;
+}
+
+nav ul li a{
+   text-transform: capitalize;
+   text-decoration: none;
+   padding:20px;
+   color:white;
+   font-size: 17px;
+}
+nav ul li a:hover{
+  color: rgb(15, 223, 205);
+}
+
+.id1{
+  color:rgb(5, 5, 107);
+  margin-top: 30px;
+  text-align: center;
+  font-size: 35px;
+}
+
+@keyframes validation{
+  0%{
+    color:brown;
+    transform:translateX(20%);
+  }
+  45%{
+    color:green;
+  }
+  100%{
+    color:black;
+    
+  }
+} 
+.id1::first-letter{
+  color:rgb(223, 13, 13);
+  text-shadow: 2px 2px 2px rgb(12, 4, 136);
+  font-family: lucida calligraphy;
+}
+
+.contact1 {
+    width: 350px;
+    margin: 6vh auto 0 auto;
+    padding: 30px;
+    background-color: rgba(108, 199, 233, 0.4); /* Add some transparency to make the background image visible */
+    border-radius: 13px;
+    font-size: 18px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow with transparency */
+    border: 3px solid rgba(43, 161, 207); /* Set border with desired color */
+}
+.contact label{
+  color: whitesmoke;
+  font-weight: bold;
+}
+
+.contact input {
+    display: flex;
+    flex-direction: column;
+    /* border-color: rgb(26, 24, 26); */
+    border-radius: 5px;
+    border-width: 3px;
+    font-size: 15px;
+    padding: 13px;
+    width: 90%;
+    border-color:  rgba(94, 176, 209, 0.2); 
+    background-color: rgba(43, 161, 207, 0.2); /* Add some transparency to make the background image visible */
+}
+
+span{
+  color:rgb(207, 23, 38);
+  font-size: 12px;
+  align-items: center;
+  width:100%;
+}
+button {
+    width: 97%;
+    padding: 10px;
+    background-color: rgb(22, 163, 219); 
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size:20px;
+    font-family:Georgia, 'Times New Roman', Times, serif; /* Setting the font family */
+    font-weight: bold;
+
+}
+p{
+  padding-left: 20px;
+  font-family:Georgia, 'Times New Roman', Times, serif; /* Setting the font family */
+}
+button:hover {
+    background-color: #0056b3;
+}
+#us4{ 
+   cursor: pointer;
+   margin-top: 7px;
+   color:white;
+   width:100%;
+   padding: 9px;
+   font-size:15px;
+   border-radius: 4px;
+   background-color: blue;
+   border: none;
+}
+.check{
+ display:list-item;
+ background-color: brown;
+  margin-top: 2px;
+  margin-bottom: 8px;
+  padding:10px;
+  width:10%;
+  display: flexbox;
+ 
+}
+.logo {
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Align items vertically */
+}
+
+.logo img {
+    margin-right: 10px; /* Add some spacing between the image and the text */
+}
+
+
     </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+       <!-- <img src="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/book1.jpg?alt=media&token=c35a3209-5e26-483d-9c04-2fee98742c4b" -->
+       style="width: 50px; height: 50px; border-radius: 50%"
+       />
+       <h1>Book World</h1>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+    <nav>
+        <ul>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+        </ul>
+    </nav>
+</header>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+ 
+ <h1 class="id1">Create Account</h1>
+ <!-- https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/Atomic%20Habits.pdf?alt=media&token=8da69737-cd01-458e-b19b-3865542f171a -->
+ <div class="contact1">
+    
+     <form id="login-form">
+       <div class="contact">
+         <label for="email">Email</label>
+         <input type="email" placeholder=" " id="email" name="email" required><br>
+       </div>
+       <div class="contact">
+         <label for="password">Password</label>
+         <input type="password" placeholder=" " id="password" name="password" required><br>
+       </div>
+         <button id="submit" type="submit">Register</button><br><br>
+     </form>
+     <div class="form">
+       <p>Have an account?
+         <span>
+           <a href="login.html">Login Here</a><br>
+         </span>
+       </p>
+    </div>
+ </div>
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
-</html>
+<footer>
+    <h2>&copy:All Right Reserved</h2>
+</footer>
+
+
+
+</body>
