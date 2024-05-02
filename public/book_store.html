@@ -162,7 +162,72 @@ nav {
     </style>
 
   </head>
-  <body>
+  <h1>Welcome To MangaWorld</h1>
+
+  <div class="row" id="mangaContainer">
+    <div class="card">
+      <img src="${mangaData.imageURL}" alt="Manga Cover" style="width: 300px; height: 200px; border-radius: 5%">
+      <div class="container">
+        <h4 class="title"><b>${mangaData.title}</b></h4>
+        <a href="${mangaData.downloadURL}" download="${mangaData.title.replace(/\s+/g, '_')}.pdf" class="btn-download">Download</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js"></script>
+  <script>
+    // Your Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAsFybiGj7kU6IyUFagLSyJatw4eK6AgXc",
+      authDomain: "mangastore-64f59.firebaseapp.com",
+      projectId: "mangastore-64f59",
+      storageBucket: "mangastore-64f59.appspot.com",
+      messagingSenderId: "797706286925",
+      appId: "1:797706286925:web:b42abf610dd2f7f021a904",
+      measurementId: "G-Z9EK8DP5PV"
+    };
+
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    // Function to fetch manga data from Firestore
+    async function fetchMangaData() {
+      try {
+        const mangaSnapshot = await db.collection('manga').get();
+        mangaSnapshot.forEach(doc => {
+          const mangaData = doc.data();
+          renderMangaCard(mangaData);
+        });
+      } catch (error) {
+        console.error('Error fetching manga data: 122345677775434', error);
+      }
+    }
+    // Function to render manga card dynamically
+    function renderMangaCard(mangaData) {
+      const mangaContainer = document.getElementById('mangaContainer');
+      const card = document.createElement('div');
+      card.classList.add('column');
+      card.innerHTML = `
+        <div class="card">
+          <img src="${mangaData.imageURL}" alt="Avatar" style="width: 300px; height: 200px; border-radius: 5%">
+          <div class="container">
+            <h4 class="a1"><b>${mangaData.title}</b></h4>
+            <a href="${mangaData.downloadURL}" download="${mangaData.title}.pdf">Read</a>         
+          </div>
+        </div>
+      `;
+      mangaContainer.appendChild(card);
+    }
+
+    // Call fetchMangaData when the page loads
+    window.onload = () => {
+      fetchMangaData();
+    };
+  </script>
+</body>
+  <!-- <body>
   
 
     <h1>Welcome To MangaWorld</h1>
@@ -180,119 +245,7 @@ nav {
           </div>
         </div>
       </div>
-
-      <!-- <div class="column">
-        <div class="card">
-          <img
-          src="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/you2.png?alt=media&token=0a1f8d0b-b1f0-44ba-b43a-08920c85172d"            alt="Avatar"
-            style="width: 300px; height: 200px;  border-radius: 5%"
-          />
-          <div class="container">
-            <h4><b>You^2</b></h4>
-            <a href="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/You%5E2.pdf?alt=media&token=f2b16d33-fde9-457f-931f-68517c9abf2c" download="You^2.pdf">Read</a>         
-          </div>
-        </div>
-      </div>
-
-      <div class="column">
-        <div class="card">
-          <img
-          src="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/Think%20and%20Grow.png?alt=media&token=ffa71e5d-fd3d-49d6-940b-aa7850a3fc25"            alt="Avatar"
-            style="width: 300px; height: 200px; border-radius: 5%"
-          />
-          <div class="container">
-            <h4><b>Think and Grow Rich</b></h4>
-            <a href="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/Think-and-Grow-Rich.pdf?alt=media&token=cb3444f3-197e-4219-8033-ae7a51c01fa4" download="Think-and-Grow-Rich.pdf">Read</a>         
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <br /><br /><br /><br /><br />
-  
-    <div class="row">
-      <div class="column">
-        <div class="card">
-          <img
-          src="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/atomic1.jpg?alt=media&token=03e401f1-72b3-4b27-953b-a735a35bfe13"            alt="Avatar"
-            style="width: 300px; height: 200px; border-radius: 5%"
-          />
-          <div class="container">
-            <h4><b>Atomic Habits</b></h4>
-            <a href="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/Atomic%20Habits.pdf?alt=media&token=8da69737-cd01-458e-b19b-3865542f171a" download="Atomic Habits.pdf">Read</a>         
-          </div>
-        </div>
-      </div>
-
-      <div class="column">
-        <div class="card">
-          <img
-          src="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/indistractable.png?alt=media&token=bd5d3aaf-6921-4893-8920-ae58655cc65f"            alt="Avatar"
-            style="width: 300px; height: 200px; border-radius: 5%"
-          />
-          <div class="container">
-            <h4><b>Indistractable</b></h4>
-            <a href="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/indistractable.pdf?alt=media&token=96c9d91a-8ef9-4c28-b17f-43fadbd98af2" download="indistractable.pdf">Read</a>         
-          </div>
-        </div>
-      </div>
-
-      <div class="column">
-        <div class="card">
-          <img
-          src="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/malgudi.jpg?alt=media&token=7a12317a-8849-4e2b-b08a-74e106f9a3f4"            alt="Avatar"
-            style="width: 300px; height: 200px; border-radius: 5%"
-          />
-          <div class="container">
-            <h4><b>Malgudi Days</b></h4>
-            <a href="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/Malgudi%20Days%20-%20R.%20K.%20Narayan.pdf?alt=media&token=661edc4a-e744-46ee-82a5-7fd3c2119fd2" download="Malgudi Days - R. K. Narayan.pdf">Read</a>         
-           </div>
-        </div>
-      </div>
-
-    </div>
-    <br /><br /><br /><br /><br />
-    <div class="row">
-      <div class="column">
-        <div class="card">
-          <img
-          src="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/one%20night.jpg?alt=media&token=85a35d72-27a0-4334-8251-1dca211e2cd0"            alt="Avatar"
-            style="width: 300px; height: 200px; border-radius: 5%"
-          />
-          <div class="container">
-            <h4 class="f1"><b>One night at the call centre</b></h4>
-            <a href="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/one-night-at-the-call-centre-365.pdf?alt=media&token=1a501760-bbc0-4606-8916-2c371996dfbe" download="one-night-at-the-call-centre-365.pdf">Read</a>         
-          </div>
-        </div>
-      </div>
-
-      <div class="column">
-        <div class="card">
-          <img
-          src="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/she%20broke%20up%20i%20didnt.jpg?alt=media&token=b4854ff1-88c5-46a7-819e-5b569f950214"            alt="Avatar"
-            style="width: 300px; height: 200px; border-radius: 5%"
-          />
-          <div class="container">
-            <h4 class="f2"><b>She broke up i didnt</b></h4>
-            <a href="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/she-broke-up-i-didnt.pdf?alt=media&token=5342d067-f0d8-46bc-a519-c0c91251b138" download="she-broke-up-i-didnt.pdf">Read</a>         
-          </div>
-        </div>
-      </div>
-
-      <div class="column">
-        <div class="card">
-          <img
-          src="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/3%20mistakes.jpg?alt=media&token=9700828e-72ef-47c8-a944-e195c1b97b2f"            alt="Avatar"
-            style="width: 300px; height: 200px; border-radius: 5%"
-          />
-          <div class="container">
-            <h4 class="f3"><b>Three mistakes of my life</b></h4>
-            <a href="https://firebasestorage.googleapis.com/v0/b/book-store-382ec.appspot.com/o/three-mistakes-of-my-life-364.pdf?alt=media&token=a596ebbe-013a-47ec-9456-8aa74f5b5a3d" download="three-mistakes-of-my-life-364.pdf">Read</a>         
-          </div>
-        </div>
-      </div> -->
-
-    </div>
+</div>
 
     <script>
       import { initializeApp } from "firebase/app";
@@ -312,5 +265,5 @@ const firebaseConfig = {
       const analytics = getAnalytics(app);
       
         </script>
-  </body>
+  </body> -->
 </html>
