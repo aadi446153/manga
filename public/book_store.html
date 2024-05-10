@@ -162,72 +162,13 @@ nav {
     </style>
 
   </head>
-<body>
-  <h1>Welcome To MangaWorld</h1>
-
-  <div class="row" id="mangaContainer">
-    <div class="card">
-      <img src="${mangaData.imageURL}" alt="Manga Cover" style="width: 300px; height: 200px; border-radius: 5%">
-      <div class="container">
-        <h4 class="title"><b>${mangaData.title}</b></h4>
-        <a href="${mangaData.downloadURL}" download="${mangaData.title.replace(/\s+/g, '_')}.pdf" class="btn-download">Download</a>
-      </div>
-    </div>
-  </div>
-
-  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js"></script>
-  <script>
-    // Your Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyAsFybiGj7kU6IyUFagLSyJatw4eK6AgXc",
-      authDomain: "mangastore-64f59.firebaseapp.com",
-      projectId: "mangastore-64f59",
-      storageBucket: "mangastore-64f59.appspot.com",
-      messagingSenderId: "797706286925",
-      appId: "1:797706286925:web:b42abf610dd2f7f021a904",
-      measurementId: "G-Z9EK8DP5PV"
-    };
-
-    // Initialize Firebase
-    const app = firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
-
-    // Function to fetch manga data from Firestore
-    async function fetchMangaData() {
-      try {
-        const mangaSnapshot = await db.collection('manga').doc('kccsqunRC91WbkeTubXQ').get();
-        const mangaData = mangaSnapshot.data();
-        if (mangaData) {
-          renderMangaCard(mangaData);
-        } else {
-          console.error('No manga data found');
-        }
-      } catch (error) {
-        console.error('Error fetching manga data:', error);
-      }
-    }
-    // Function to render manga card dynamically
-    function renderMangaCard(mangaData) {
-      const mangaContainer = document.getElementById('mangaContainer');
-      const card = document.createElement('div');
-      card.classList.add('column');
-      card.innerHTML = `
-        <div class="card">
-          <img src="${mangaData.imageURL}" alt="Avatar" style="width: 300px; height: 200px; border-radius: 5%">
-          <div class="container">
-            <h4 class="a1"><b>${mangaData.title}</b></h4>
-            <a href="${mangaData.downloadURL}" download="${mangaData.title}.pdf">Read</a>         
-          </div>
-        </div>
-      `;
-      mangaContainer.appendChild(card);
-    }
-
-    // Call fetchMangaData when the page loads
-    window.onload = () => {
-      fetchMangaData();
-    };
-  </script>
-</body>
+  <body>
+    <h1>Welcome To MangaWorld</h1>
+  
+    <div class="row" id="mangaContainer">
+      <!-- Manga cards will be dynamically added here -->
+    </div> 
+    <!-- Your custom JavaScript file -->
+    <script src="book_store.js" type="module"></script>
+  </body>
 </html>
