@@ -1,9 +1,5 @@
-// Import the functions you need from the SDKs
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
-// import { getFirestore, collection } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
 import { getFirestore, getDocs, collection } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
-
-// Your Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyAsFybiGj7kU6IyUFagLSyJatw4eK6AgXc",
     authDomain: "mangastore-64f59.firebaseapp.com",
@@ -13,11 +9,8 @@ const firebaseConfig = {
     appId: "1:797706286925:web:b42abf610dd2f7f021a904",
     measurementId: "G-Z9EK8DP5PV"
   };
-
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
-  
-  // Function to fetch manga data from Firestore
   async function fetchMangaData() {
     try {
       const querySnapshot = await getDocs(collection(db, 'manga'));
@@ -33,8 +26,6 @@ const firebaseConfig = {
       console.error('Error  manga data:', error);
     }
   }
-  
-  // Function to render manga card dynamically
   function renderMangaCard(mangaData) {
     console.log(mangaData)
     const mangaContainer = document.getElementById('mangaContainer');
@@ -49,8 +40,6 @@ const firebaseConfig = {
     `;
     mangaContainer.appendChild(card);
   }
-  
-  // Call fetchMangaData when the page loads
   window.onload = () => {
     fetchMangaData();
   };
