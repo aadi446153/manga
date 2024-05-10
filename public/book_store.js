@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
+// import { getFirestore, collection } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
+import { getFirestore, getDocs, collection } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
 
 // Your Firebase configuration
 const firebaseConfig = {
@@ -35,6 +36,7 @@ const firebaseConfig = {
   
   // Function to render manga card dynamically
   function renderMangaCard(mangaData) {
+    console.log(mangaData)
     const mangaContainer = document.getElementById('mangaContainer');
     const card = document.createElement('div');
     card.classList.add('card');
@@ -42,7 +44,7 @@ const firebaseConfig = {
       <img src="${mangaData.imageURL}" alt="Manga Cover" style="width: 300px; height: 200px; border-radius: 5%">
       <div class="container">
         <h4><b>${mangaData.title}</b></h4>
-        <a href="${mangaData.pdfURL}" target="_blank" class="btn-download">Download PDF</a>
+        <a href="${mangaData.URL}" download="${mangaData.title.replace(/\s+/g, '_')}.pdf">Read</a>
       </div>
     `;
     mangaContainer.appendChild(card);
