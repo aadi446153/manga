@@ -43,3 +43,9 @@ const firebaseConfig = {
   window.onload = () => {
     fetchMangaData();
   };
+  document.addEventListener('DOMContentLoaded', () => {
+    const uploadButton = document.getElementById('uploadButton');
+    uploadButton.addEventListener('click', () => {
+      window.location.href = 'upload.html'; // Redirect to the upload page
+    });
+  });

@@ -158,15 +158,34 @@
 nav {
     align-self: flex-end;
 }
-
+#uploadButton {
+  padding: 16px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
     </style>
 
   </head>
-  <body>
+  <!-- <body>
     <h1>Welcome To MangaWorld</h1>
   
     <div class="row" id="mangaContainer">
     </div> 
+    <script src="book_store.js" type="module"></script>
+  </body> -->
+
+  <body>
+    <div class="header">
+      <h1>Welcome To MangaWorld</h1>
+      <button id="uploadButton">Upload Manga</button>
+    </div>
+  
+    <div class="row" id="mangaContainer">
+    </div> 
+  
     <script src="book_store.js" type="module"></script>
   </body>
 </html>
